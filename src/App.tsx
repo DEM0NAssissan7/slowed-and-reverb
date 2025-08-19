@@ -133,7 +133,6 @@ export default function App() {
                   step={0.01}
                   value={speed}
                   onChange={(e) => setSpeed(parseFloat(e.target.value))}
-                  onMouseUp={regenerate}
                   className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer range-lg accent-blue-500"
                 />
               </div>
@@ -151,7 +150,6 @@ export default function App() {
                   step={0.01}
                   value={reverbVolume}
                   onChange={(e) => setReverbVolume(parseFloat(e.target.value))}
-                  onMouseUp={regenerate}
                   className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer range-lg accent-blue-500"
                 />
               </div>
@@ -170,7 +168,6 @@ export default function App() {
                   step={0.1}
                   value={reverbLength}
                   onChange={(e) => setReverbLength(parseFloat(e.target.value))}
-                  onMouseUp={regenerate}
                   className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer range-lg accent-blue-500"
                 />
               </div>
@@ -213,6 +210,18 @@ export default function App() {
                 )
               )}
             </div>
+
+            {/* Generate Button */}
+            <div className="my-6 text-center">
+              <button
+                onClick={regenerate}
+                disabled={busy}
+                className="bg-blue-600 hover:bg-blue-700 text-white cursor-pointer font-semibold py-3 px-8 rounded-lg transition-all duration-200 ease-in-out hover:scale-105 disabled:bg-gray-600 disabled:cursor-not-allowed disabled:scale-100"
+              >
+                Regenerate
+              </button>
+            </div>
+
             <div className="text-center mt-4">
               <button
                 onClick={handleFileClick}
